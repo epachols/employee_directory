@@ -10,13 +10,13 @@ export default function ResultRow(props) {
     return (
         <tr>
             <td style={TdStyle}>
-                
+                <img src={props.employee.picture.thumbnail}/>
             </td>
-            <td style={TdStyle}>Name</td>
-            <td style={TdStyle}>Hire Date</td>
-            <td style={TdStyle}>Years With us</td>
-            <td style={TdStyle}>Phone</td>
-            <td style={TdStyle}>email</td>
+            <td style={TdStyle}>{props.employee.name.first} {props.employee.name.last}</td>
+            <td style={TdStyle}>{props.employee.registered.date.slice(0, 10)}</td>
+            <td style={TdStyle}>{props.employee.registered.age}</td>
+            <td style={TdStyle}>{props.employee.phone}</td>
+            <td style={TdStyle}>{props.employee.email}</td>
         </tr>
     )
 }

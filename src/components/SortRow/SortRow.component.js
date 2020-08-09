@@ -10,8 +10,8 @@ export default function SortRow() {
             <td><a href="#">Picture</a></td>
             <td>Name</td>
             <td>Hire Date</td>
-            <td>Years With us</td>
-            <td>Phone</td>
+            <td>Years On board</td>
+            <td>Home Phone</td>
             <td>email</td>
         </tr>
         

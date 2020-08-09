@@ -32,9 +32,9 @@ class EmployeeContainer extends Component {
       <div>
         <br></br>
         <div>
-          <h4>Search Employees By Name</h4>
+          <h4>Search By First Name</h4>
           <SearchBar 
-          placeholder="search by firstname"
+          placeholder="search by first name"
           handleChange={this.handleChange}
           />
         </div>
