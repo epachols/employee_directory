@@ -9,7 +9,9 @@ const TdStyle = {
 export default function ResultRow(props) {
     return (
         <tr>
-            <td style={TdStyle}>Picture</td>
+            <td style={TdStyle}>
+                
+            </td>
             <td style={TdStyle}>Name</td>
             <td style={TdStyle}>Hire Date</td>
             <td style={TdStyle}>Years With us</td>

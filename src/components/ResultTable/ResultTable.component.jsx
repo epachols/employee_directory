@@ -10,8 +10,8 @@ const style = {
 function ResultTable(props) {
     return (
         <table style={style}>
-            <SortRow props={props}/>
-            <ResultRow props={props}/>
+            <SortRow employees={props}/>
+            {props.employees.map(employee => <ResultRow employee={employee} />)}
         </table>
     )
 }

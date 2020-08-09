@@ -5,7 +5,7 @@ import SearchBar from "../SearchBar/SearchBar.component"
 
 class EmployeeContainer extends Component {
   state = {
-    result: {},
+    result: [],
     search: "",
   };
 
@@ -18,26 +18,30 @@ class EmployeeContainer extends Component {
       .catch((err) => console.log(err));
   }
 
-  handleInputChange = event => {
-      const name = event.target.name;
-      const value = event.target.value;
-      this.setState({
-        [name]: value
-      });
-    };
+  handleChange = (e) => {
+    this.setState({search: e.target.value})
+  }
 
   render() {
+    const {result, search} = this.state;
+    const filteredResult = result.filter((result) =>
+    result.name.first.toLowerCase().includes(search.toLowerCase())
+  );
+   
     return (
       <div>
         <br></br>
         <div>
           <h4>Search Employees By Name</h4>
-          <SearchBar />
+          <SearchBar 
+          placeholder="search by firstname"
+          handleChange={this.handleChange}
+          />
         </div>
         <br></br>
         <br></br>
         <div>
-            <ResultTable props={this.state.result}/>
+            <ResultTable employees={filteredResult}/>
         </div>
       </div>
     );
