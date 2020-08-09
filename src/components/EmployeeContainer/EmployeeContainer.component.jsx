@@ -13,9 +13,15 @@ class EmployeeContainer extends Component {
   componentDidMount() {
     API.search()
       .then((res) => {
-          this.setState({ result: res.data.results });
-          //TODO: maybe map the results up here and add fullname instead of at render?
-          console.log(res.data.results)
+        const resultsWithFullName = res.data.results.map(employee=> {
+          let fullName =  `${employee.name.first} ${employee.name.last}`
+          // console.log(fullName);
+        employee.fullName= fullName
+        return employee
+      })
+        //TODO: extract to separate component if any more mods necesssary
+          this.setState({ result: resultsWithFullName });
+          // console.log(res.data.results)
         })
       .catch((err) => console.log(err));
   }
@@ -27,10 +33,9 @@ class EmployeeContainer extends Component {
   //TODO: figure out why page reloads every time I sort. do I need to not sort the array and rerender? thought that was the point, makin it easy
 
   handleSort = (choice) => {
-
     const newResult = [...this.state.result];
-    //TODO: the below a.choice is wrong -> I am trying to pass back up a value to sort by based on what is clicked down below
-    newResult.sort((a,b) => (a.name.first - b.name.first));
+    //TODO: tried below a.choice is wrong -> I am trying to pass back up a value to sort by based on what is clicked down below
+    newResult.sort((a,b) => (a[choice] > b[choice]) ? 1: -1);   
 
     console.log( { newResult } );
 
@@ -42,25 +47,19 @@ class EmployeeContainer extends Component {
 
     // //TODO: working fullname into the sort feature by adding a "fullname" value to each returned employee.
 
-    // const resultsWithFullName = result.map(employee=> {
-    //     let fullName =  `${employee.name.first} ${employee.name.last}`
-    //     console.log(fullName);
-    //   employee.fullName= fullName
-    // })
-    // console.log({resultsWithFullName});
 
 
     const filteredResult = result.filter((result) =>
-    result.name.first.toLowerCase().includes(search.toLowerCase())
+    result.fullName.toLowerCase().includes(search.toLowerCase())
   );
    
     return (
       <div>
         <br></br>
         <div>
-          <h4>Search By First Name</h4>
+          <h4>Search By Name, first or last</h4>
           <SearchBar 
-          placeholder="search by first name"
+          placeholder="search by name"
           handleChange={this.handleChange}
           value={this.state.search}
           />
