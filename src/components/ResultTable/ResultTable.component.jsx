@@ -4,14 +4,18 @@ import SortRow from '../SortRow/SortRow.component'
 
 const style = {
     borderSpacing: "1px",
-    width: "95%"
+    width: "95%",
+    margin: "auto"
 }
 
-function ResultTable(props) {
+function ResultTable({ employees, handleSort }) {
     return (
         <table style={style}>
-            <SortRow employees={props}/>
-            {props.employees.map(employee => <ResultRow employee={employee} />)}
+        <tbody>
+            <SortRow handleSort={handleSort}/>
+            {employees.map(employee => <ResultRow key={employee.login.uuid} employee={employee} />)}
+
+        </tbody>
         </table>
     )
 }

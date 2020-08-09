@@ -1,16 +1,17 @@
 import React from 'react'
 
-// const style ={
-    
-// }
+const style ={
+    fontSize: "24px",
+    fontWeight: "bolder"
+}
 
-export default function SortRow() {
+export default function SortRow({ handleSort }) {
     return (
-        <tr>
-            <td><a href="#">Picture</a></td>
-            <td>Name</td>
+        <tr style={style}>
+            <td>Picture</td>
+            <td><a href="#" onClick={()=>  handleSort("name.first") }>Name</a></td>
+            <td>Country</td>
             <td>Hire Date</td>
-            <td>Years On board</td>
             <td>Home Phone</td>
             <td>email</td>
         </tr>

@@ -1,15 +1,14 @@
 import React from 'react'
 
-export default function SearchBar() {
+export default function SearchBar({ placeholder, handleChange }) {
     return (
         <div>
-
-        <form>
-           <input></input>
-           <submit></submit>
-
-        </form>
-
+           <input 
+               className = 'search'
+               type='search'
+               placeholder={ placeholder }
+               onChange={ handleChange }
+           />
         </div>
     )
 }
