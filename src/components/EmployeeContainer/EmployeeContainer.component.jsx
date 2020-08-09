@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import API from "../../utils/API";
-import ResultTable from "../ResultTable/ResultTable.component"
+import ResultTable from "../ResultTable/ResultTable.component";
+import SearchBar from "../SearchBar/SearchBar.component"
 
 class EmployeeContainer extends Component {
   state = {
@@ -17,20 +18,26 @@ class EmployeeContainer extends Component {
       .catch((err) => console.log(err));
   }
 
-  // handleInputChange = event => {
-  //     const name = event.target.name;
-  //     const value = event.target.value;
-  //     this.setState({
-  //       [name]: value
-  //     });
-  //   };
+  handleInputChange = event => {
+      const name = event.target.name;
+      const value = event.target.value;
+      this.setState({
+        [name]: value
+      });
+    };
 
   render() {
     return (
       <div>
-        <div>Search component</div>
+        <br></br>
         <div>
-            <ResultTable />
+          <h4>Search Employees By Name</h4>
+          <SearchBar />
+        </div>
+        <br></br>
+        <br></br>
+        <div>
+            <ResultTable props={this.state.result}/>
         </div>
       </div>
     );

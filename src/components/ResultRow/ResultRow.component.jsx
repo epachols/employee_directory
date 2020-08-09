@@ -1,8 +1,6 @@
 import React from 'react'
 
 
-
-
 const TdStyle = {
    padding: "5px",
    border: "1px solid black"
@@ -11,11 +9,12 @@ const TdStyle = {
 export default function ResultRow(props) {
     return (
         <tr>
-            <td style={TdStyle}>picture thumbnail</td>
-            <td style={TdStyle}>first + last name</td>
-            <td style={TdStyle}>email</td>
+            <td style={TdStyle}>Picture</td>
+            <td style={TdStyle}>Name</td>
+            <td style={TdStyle}>Hire Date</td>
             <td style={TdStyle}>Years With us</td>
-            <td style={TdStyle}>Birthday</td>
+            <td style={TdStyle}>Phone</td>
+            <td style={TdStyle}>email</td>
         </tr>
     )
 }

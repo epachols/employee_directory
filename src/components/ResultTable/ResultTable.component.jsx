@@ -1,5 +1,6 @@
 import React from 'react';
-import ResultRow from '../ResultRow/ResultRow.component'
+import ResultRow from '../ResultRow/ResultRow.component';
+import SortRow from '../SortRow/SortRow.component'
 
 const style = {
     borderSpacing: "1px",
@@ -9,9 +10,8 @@ const style = {
 function ResultTable(props) {
     return (
         <table style={style}>
-            <tr>fresh table row place holder</tr>
+            <SortRow props={props}/>
             <ResultRow props={props}/>
-            
         </table>
     )
 }
