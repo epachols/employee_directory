@@ -1,0 +1,5 @@
+html, body {
+    background: linear-gradient(
+       69deg, salmon, rgb(0, 194, 194), white 
+    )
+}

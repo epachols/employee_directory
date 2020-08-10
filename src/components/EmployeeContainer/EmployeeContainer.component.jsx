@@ -30,12 +30,9 @@ class EmployeeContainer extends Component {
     this.setState({search: e.target.value})
   }
 
-  //TODO: figure out why page reloads every time I sort. do I need to not sort the array and rerender? thought that was the point, makin it easy
-
   handleSort = (choice) => {
     const newResult = [...this.state.result];
-    //TODO: tried below a.choice is wrong -> I am trying to pass back up a value to sort by based on what is clicked down below
-    newResult.sort((a,b) => (a[choice] > b[choice]) ? 1: -1);   
+    newResult.sort((a,b) => (a[choice] > b[choice]) ? 1: -1);
 
     console.log( { newResult } );
 
@@ -45,16 +42,13 @@ class EmployeeContainer extends Component {
   render() {
     const {result, search} = this.state;
 
-    // //TODO: working fullname into the sort feature by adding a "fullname" value to each returned employee.
-
-
-
     const filteredResult = result.filter((result) =>
     result.fullName.toLowerCase().includes(search.toLowerCase())
   );
    
     return (
       <div>
+      <h1>Employee Directory</h1>
         <br></br>
         <div>
           <h4>Search By Name, first or last</h4>
@@ -68,6 +62,9 @@ class EmployeeContainer extends Component {
         <br></br>
         <div className="tableDiv">
             <ResultTable employees={filteredResult} handleSort={this.handleSort}/>
+        </div>
+        <div className="footer">
+          
         </div>
       </div>
     );

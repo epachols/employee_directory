@@ -13,7 +13,8 @@ export default function SortRow({ handleSort }) {
             <td>Country</td>
             <td>Hire Date</td>
             <td>Home Phone</td>
-            <td>email</td>
+            <td><a href="#" onClick={()=>  handleSort("email") }>Email</a></td>
+            {/* <td>email</td> */}
         </tr>
         
     )
