@@ -64,7 +64,7 @@ class EmployeeContainer extends Component {
             <ResultTable employees={filteredResult} handleSort={this.handleSort}/>
         </div>
         <div className="footer">
-          
+          This mock employee registry brought to you by &copy;Code Crow
         </div>
       </div>
     );
